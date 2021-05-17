@@ -56,3 +56,4 @@ if __name__ == "__main__":
         dist_url=args.dist_url,
         args=(args,),
     )
+#python tools/train_net.py --config-file /home/gxl/PycharmProjects/fast-reid/configs/VeRi/sbs_E50-ibn.yml --num-gpus 1

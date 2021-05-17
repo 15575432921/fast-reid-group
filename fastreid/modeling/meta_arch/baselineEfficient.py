@@ -15,7 +15,7 @@ from .build import META_ARCH_REGISTRY
 
 
 @META_ARCH_REGISTRY.register()
-class Baseline(nn.Module):
+class BaselineEfficient(nn.Module):
     """
     Baseline architecture. Any models that contains the following two components:
     1. Per-image feature extraction (aka backbone)
@@ -98,7 +98,7 @@ class Baseline(nn.Module):
 
     def forward(self, batched_inputs):
         images = self.preprocess_image(batched_inputs)
-        features = self.backbone(images)
+        features = self.backbone.extract_features(images)
         if self.training:
             assert "targets" in batched_inputs, "Person ID annotation are missing in training!"
             targets = batched_inputs["targets"]
